@@ -57,6 +57,7 @@ jobs:
 
       - name: Build App one
         run: |
+          npm install express --save
           npm run build app-one
       
       - name: Log in to Docker Hub

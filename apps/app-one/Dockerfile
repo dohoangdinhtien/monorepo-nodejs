@@ -20,8 +20,18 @@ FROM node:14-alpine
 # USER node
 
 WORKDIR /app
-COPY ./dist/apps/app-one .
+
+RUN npm install -g npm-check-updates \
+    ncu -u \
+    npm install \
+    npm install express \
+    npm install babel-cli \
+    npm install babel-preset \
+    npm install babel-preset-env
+
 RUN npm install --production
+
+COPY ./dist/apps/app-one .
 
 # Make port 8080 accessible outside of container
 EXPOSE 3000

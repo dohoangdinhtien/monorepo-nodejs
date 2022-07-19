@@ -10,7 +10,7 @@ ENV NODE_ENV production
 WORKDIR /usr/src/app
 
 # Copy app files
-COPY --chown=node:node . /usr/src/app
+COPY --chown=node:node ./dist/apps/app-one /usr/src/app
 
 # Install only production dependencies
 # RUN npm ci --only=production

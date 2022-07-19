@@ -47,10 +47,14 @@ jobs:
           npm install -g @nrwl/cli
           npm install
           
-      - uses: mansagroup/nrwl-nx-action@v2
-        with:
-          targets: build
-          projects: app-one
+#       - uses: mansagroup/nrwl-nx-action@v2
+#         with:
+#           targets: build
+#           projects: app-one
+
+      - name: Build App one
+        run: |
+          npm run build app-one
       
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -68,6 +72,7 @@ jobs:
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
+          file: 'apps/app-one/Dockerfile'
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

@@ -1,7 +1,7 @@
 FROM node:14-alpine
 
 # Add tool which will fix init process
-RUN apk add dumb-init
+# RUN apk add dumb-init
 
 # # Optimise for production
 # ENV NODE_ENV production
@@ -17,7 +17,7 @@ RUN apk add dumb-init
 # RUN npm install
 
 # # friends don’t let friends run containers as root!
-USER node
+# USER node
 
 WORKDIR /app
 COPY ./dist/apps/app-one .
@@ -25,4 +25,5 @@ RUN npm install --production
 
 # Make port 8080 accessible outside of container
 EXPOSE 3000
-CMD ["dumb-init", "node", "main.js" ]
+# CMD ["dumb-init", "node", "main.js" ]
+CMD node ./main.js

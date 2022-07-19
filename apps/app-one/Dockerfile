@@ -21,13 +21,7 @@ FROM node:14-alpine
 
 WORKDIR /app
 
-RUN npm install -g npm-check-updates \
-    ncu -u \
-    npm install \
-    npm install express \
-    npm install babel-cli \
-    npm install babel-preset \
-    npm install babel-preset-env
+COPY ./package.json .
 
 RUN npm install --production
 

@@ -34,6 +34,19 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      
+      - name: Install NX environment
+        run: |
+          rm -rf node_modules
+          npm cache verify
+          npm install -g @nrwl/cli
+          npm install
+          
       - uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: build

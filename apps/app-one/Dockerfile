@@ -28,6 +28,6 @@ RUN npm install --production
 COPY ./dist/apps/app-one .
 
 # Make port 8080 accessible outside of container
-EXPOSE 3000
+EXPOSE 3333
 # CMD ["dumb-init", "node", "main.js" ]
 CMD node ./main.js

@@ -106,4 +106,4 @@ jobs:
             docker pull blackwhite152/app-one:main
             docker stop ${{env.CONTAINER}}
             docker rm ${{env.CONTAINER}}
-            docker run -p ${{ APP_PORT }}:3000 -d --name=${{env.CONTAINER}} blackwhite152/app-one:main
+            docker run -p ${{ env.APP_PORT }}:3000 -d --name=${{env.CONTAINER}} blackwhite152/app-one:main

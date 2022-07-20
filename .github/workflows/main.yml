@@ -105,4 +105,4 @@ jobs:
             docker pull blackwhite152/app-one:main
             docker stop ${{env.CONTAINER}}
             docker rm ${{env.CONTAINER}}
-            docker run -p 3000:3000 -d --name=${{env.CONTAINER}} blackwhite152/app-one:main
+            docker run -p 3333:3333 -d --name=${{env.CONTAINER}} blackwhite152/app-one:main

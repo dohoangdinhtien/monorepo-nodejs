@@ -15,6 +15,7 @@ on:
 
 env:
   CONTAINER: nodejs-app-one
+  APP_PORT: 3333
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -105,4 +106,4 @@ jobs:
             docker pull blackwhite152/app-one:main
             docker stop ${{env.CONTAINER}}
             docker rm ${{env.CONTAINER}}
-            docker run -p 3333:3333 -d --name=${{env.CONTAINER}} blackwhite152/app-one:main
+            docker run -p ${{ APP_PORT }}:3000 -d --name=${{env.CONTAINER}} blackwhite152/app-one:main

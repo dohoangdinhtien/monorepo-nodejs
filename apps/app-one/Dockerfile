@@ -6,7 +6,9 @@ RUN apk add dumb-init
 # # Optimise for production
 ENV NODE_ENV production
 
-# # Create app directory
+# Create app directory
+USER node
+
 WORKDIR /app
 COPY ./package.json .
 
@@ -14,8 +16,8 @@ COPY ./package.json .
 COPY --chown=node:node ./dist/apps/app-one .
 
 # # Install only production dependencies
-RUN npm ci --only=production
-# RUN npm install
+# RUN npm ci --only=production
+RUN npm install --production
 
 # # friends don’t let friends run containers as root!
 # USER node
